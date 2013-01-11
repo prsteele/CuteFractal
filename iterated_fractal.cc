@@ -1,5 +1,4 @@
 #include "iterated_fractal.hh"
-#include <iostream>
 
 IteratedFractal::IteratedFractal(int max_iterations, double max_radius)
 {
@@ -10,18 +9,20 @@ IteratedFractal::IteratedFractal(int max_iterations, double max_radius)
 void IteratedFractal::render(Viewport *viewport, int im_width, int im_height,
 			     Evaluator eval, Palette palette, int **image)
 {
+
+  double coor_height = im_height * viewport->coor_width / im_width;
   double dx = viewport->coor_width / im_width;
-  double dy = viewport->coor_height / im_height;
+  double dy = coor_height / im_height;
 
   int ndx = 0;
   double x;
   double y;
   
-  y = viewport->center_im + viewport->coor_height / 2;
-  for (int col = 0; col < im_width; col++, y -= dy) {
+  y = viewport->center_im + coor_height / 2;
+  for (int row = 0; row < im_height; row++, y -= dy) {
 
     x = viewport->center_re - viewport->coor_width / 2;
-    for (int row = 0; row < im_height; row++, x += dx) {
+    for (int col = 0; col < im_width; col++, x += dx) {
       Result res;
       this->iterate_point(x, y, &res);
 

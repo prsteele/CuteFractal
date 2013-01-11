@@ -35,10 +35,13 @@ QSize Render::sizeHint() const
 void Render::paintEvent(QPaintEvent *event)
 {
 
-  Mandelbrot man(100, 8);
-  Viewport view (0, 0, 4, 4);
+  QSize size = this->size();
 
-  QSize size = this->sizeHint();
+  delete this->image;
+  this->image = new QImage(size, QImage::Format_ARGB32_Premultiplied);
+
+  Mandelbrot man(100, 8);
+  Viewport view (0, 0, 4);
 
   int im_width = size.width();
   int im_height = size.height();
@@ -56,4 +59,6 @@ void Render::paintEvent(QPaintEvent *event)
 
   QPainter painter (this);
   painter.drawImage(0, 0, *(this->image));
+
+  delete image;
 }

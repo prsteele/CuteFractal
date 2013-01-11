@@ -7,10 +7,9 @@ public:
   double center_re;
   double center_im;
   double coor_width;
-  double coor_height;
 
   Viewport(double center_re, double center_im,
-	   double coor_width, double coor_height);
+	   double coor_width);
 };
 
 #endif
