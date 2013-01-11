@@ -1,0 +1,16 @@
+This project is built on QT, and so uses qmake to build.
+
+Build instructions
+==================
+
+Ultimately we will call `make' to make the project; however, Makefile
+is automatically generated as follows.
+
+1. Create QTFractal.pro
+  - Run `qmake -project' to generate the .pro file; note that any
+    manual changes to QTFractal.pro will be destroyed
+
+2. Generate Makefile
+  - Run `qmake QTFractal.pro'
+
+3. Run `make'
