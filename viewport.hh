@@ -4,12 +4,13 @@
 class Viewport
 {
 public:
-  double center_re;
-  double center_im;
-  double coor_width;
 
   Viewport(double center_re, double center_im,
 	   double coor_width);
+
+  double center_re;
+  double center_im;
+  double coor_width;
 };
 
 #endif

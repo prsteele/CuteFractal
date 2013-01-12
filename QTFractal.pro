@@ -7,21 +7,23 @@ TARGET =
 DEPENDPATH += .
 INCLUDEPATH += .
 
+CONFIG += debug
+
 # Input
 HEADERS += evaluate.hh \
            iterated_fractal.hh \
            mandelbrot.hh \
            palette.hh \
-           render.hh \
            result.hh \
            viewport.hh \
-           window.hh
+           fractal.hh \
+           fractal_view.hh
 SOURCES += evaluate.cc \
            iterated_fractal.cc \
            main.cc \
            mandelbrot.cc \
            palette.cc \
-           render.cc \
            result.cc \
            viewport.cc \
-           window.cc
+           fractal.cc \
+           fractal_view.cc

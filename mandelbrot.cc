@@ -1,14 +1,19 @@
 #include <math.h>
 #include "mandelbrot.hh"
 
-Mandelbrot::Mandelbrot(int max_iterations, double max_radius)
-  : IteratedFractal(max_iterations, max_radius)
+Mandelbrot::Mandelbrot(Viewport *view, int max_iterations, double max_radius,
+		       Evaluator eval, Palette palette)
+  : IteratedFractal(view, max_iterations, max_radius, eval, palette)
 {
+}
 
+Mandelbrot::Mandelbrot(int max_iterations, double max_radius,
+		       Evaluator eval, Palette palette)
+  : IteratedFractal(max_iterations, max_radius, eval, palette)
+{
 }
 
 Mandelbrot::~Mandelbrot() {
-
 }
 
 void Mandelbrot::iterate_point(double x, double y, Result *result)

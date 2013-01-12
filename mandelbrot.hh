@@ -6,7 +6,11 @@
 class Mandelbrot : public IteratedFractal
 {
 public:
-  Mandelbrot(int max_iterations, double max_radius);
+  Mandelbrot(Viewport *view, int max_iterations, double max_radius,
+	     Evaluator eval, Palette palette);
+  
+  Mandelbrot(int max_iterations, double max_radius,
+	     Evaluator eval, Palette palette);
   ~Mandelbrot();
 
   virtual void iterate_point(double x, double y, Result *result);

@@ -1,15 +1,20 @@
 #ifndef ITERATED_FRACTAL_HH
 #define ITERATED_FRACTAL_HH
 
+#include "fractal.hh"
 #include "evaluate.hh"
 #include "palette.hh"
 #include "viewport.hh"
 
-class IteratedFractal
+class IteratedFractal : public Fractal
 {
 public:
 
-  IteratedFractal(int max_iterations, double max_radius);
+  IteratedFractal(Viewport *view, int max_iterations, double max_radius,
+		  Evaluator eval, Palette palette);
+  
+  IteratedFractal(int max_iterations, double max_radius,
+		  Evaluator eval, Palette palette);
 
   /*
     Render the fractal for the given viewport and image size, storing
@@ -18,8 +23,7 @@ public:
     corresponds to the top left pixel, and indices increase across
     columns then down rows.
    */
-  void render(Viewport *viewport, int im_width, int im_height,
-	      Evaluator eval, Palette palette, int **image);
+  virtual void render(int im_width, int im_height, int **image);
 
 protected:
 
@@ -31,6 +35,10 @@ protected:
     in the result object.
    */
   virtual void iterate_point(double x, double y, Result *result)=0;
+
+  Evaluator *eval;
+  Palette *palette;
+
 };
 
 #endif

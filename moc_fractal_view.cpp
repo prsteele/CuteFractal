@@ -1,15 +1,15 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'window.hh'
+** Meta object code from reading C++ file 'fractal_view.hh'
 **
-** Created: Fri Jan 11 17:11:13 2013
+** Created: Fri Jan 11 18:40:09 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "window.hh"
+#include "fractal_view.hh"
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'window.hh' doesn't include <QObject>."
+#error "The header file 'fractal_view.hh' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
 #error "This file was generated using the moc from 4.8.1. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -17,7 +17,7 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-static const uint qt_meta_data_Window[] = {
+static const uint qt_meta_data_FractalView[] = {
 
  // content:
        6,       // revision
@@ -33,11 +33,11 @@ static const uint qt_meta_data_Window[] = {
        0        // eod
 };
 
-static const char qt_meta_stringdata_Window[] = {
-    "Window\0"
+static const char qt_meta_stringdata_FractalView[] = {
+    "FractalView\0"
 };
 
-void Window::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void FractalView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     Q_UNUSED(_o);
     Q_UNUSED(_id);
@@ -45,33 +45,33 @@ void Window::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
     Q_UNUSED(_a);
 }
 
-const QMetaObjectExtraData Window::staticMetaObjectExtraData = {
+const QMetaObjectExtraData FractalView::staticMetaObjectExtraData = {
     0,  qt_static_metacall 
 };
 
-const QMetaObject Window::staticMetaObject = {
-    { &QWidget::staticMetaObject, qt_meta_stringdata_Window,
-      qt_meta_data_Window, &staticMetaObjectExtraData }
+const QMetaObject FractalView::staticMetaObject = {
+    { &QWidget::staticMetaObject, qt_meta_stringdata_FractalView,
+      qt_meta_data_FractalView, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &Window::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &FractalView::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *Window::metaObject() const
+const QMetaObject *FractalView::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *Window::qt_metacast(const char *_clname)
+void *FractalView::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_Window))
-        return static_cast<void*>(const_cast< Window*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_FractalView))
+        return static_cast<void*>(const_cast< FractalView*>(this));
     return QWidget::qt_metacast(_clname);
 }
 
-int Window::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int FractalView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
