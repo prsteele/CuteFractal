@@ -5,7 +5,7 @@
 
 /*
   Take a Result object, a maximum number of iterations, and a maximum
-  radius, and compute a [0, 1] value. 0 should indicate set
+  radius, and compute a [0, 1] value. 1 should indicate set
   membership.
 */
 typedef double Evaluator(Result *, int, double);

@@ -28,7 +28,7 @@ private:
 
   Fractal *fractal;
 
-  void toQImage(int **image, QImage *qimage);
+  void toQImage(int *image, QImage *qimage);
 };
 
 #endif

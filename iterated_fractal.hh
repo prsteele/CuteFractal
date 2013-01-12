@@ -23,7 +23,7 @@ public:
     corresponds to the top left pixel, and indices increase across
     columns then down rows.
    */
-  virtual void render(int im_width, int im_height, int **image);
+  virtual void render(int im_width, int im_height, int *image);
 
 protected:
 

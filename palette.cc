@@ -1,11 +1,11 @@
 #include "palette.hh"
 
-int bw_cutoff(double value)
+unsigned int bw_cutoff(double value)
 {
   if (value < .5) {
-    return 0xFF000000;
+    return 0xFFFFFFFF;
   }
   else {
-    return 0xFFFFFFFF;
+    return 0xFF000000;
   }
 }

@@ -22,7 +22,7 @@ IteratedFractal::IteratedFractal(int max_iterations, double max_radius,
   this->palette = palette;
 }
 
-void IteratedFractal::render(int im_width, int im_height, int **image)
+void IteratedFractal::render(int im_width, int im_height, int *image)
 {
   double coor_height = im_height * this->view->coor_width / im_width;
   double dx = this->view->coor_width / im_width;
@@ -43,7 +43,7 @@ void IteratedFractal::render(int im_width, int im_height, int **image)
       double value = this->eval(&res, this->max_iterations, this->max_radius);
       int color = this->palette(value);
 
-      (*image)[ndx] = color;
+      image[ndx] = color;
       ndx++;
     }
   }

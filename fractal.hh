@@ -13,7 +13,7 @@ public:
 
   void setViewport(Viewport *view);
   
-  virtual void render(int im_width, int im_height, int **image)=0;
+  virtual void render(int im_width, int im_height, int *image)=0;
 
 protected:
   Viewport *view;
