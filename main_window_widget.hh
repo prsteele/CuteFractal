@@ -5,16 +5,16 @@
 #include <QMenuBar>
 #include <QMenu>
 
-#include "fractal_view.hh"
+#include "fractal_view_widget.hh"
 #include "fractal_manager.hh"
 
-class MainWindow : public QMainWindow
+class MainWindowWidget : public QMainWindow
 {
   Q_OBJECT;
 
 public:
-  MainWindow();
-  ~MainWindow();
+  MainWindowWidget();
+  ~MainWindowWidget();
 
 private slots:
   void setMandelbrot();
@@ -31,7 +31,7 @@ protected:
   QMenu *fileMenu;
   QMenu *editMenu;
   QMenu *helpMenu;
-  FractalView *fview;
+  FractalViewWidget *fview;
 
   QAction *mandelbrotAction;
   QAction *juliaAction;

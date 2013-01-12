@@ -1,14 +1,14 @@
-#include "main_window.hh"
+#include "main_window_widget.hh"
 
 #include <QtGui>
 #include <QWidget>
 #include <QString>
 #include <QAction>
 
-MainWindow::MainWindow()
+MainWindowWidget::MainWindowWidget()
 {
   this->fmanager = new FractalManager;
-  this->fview = new FractalView(this);
+  this->fview = new FractalViewWidget(this);
   this->fview->setFractal(this->fmanager->mandelbrot);
   
   this->setupCentralWidget();
@@ -20,18 +20,18 @@ MainWindow::MainWindow()
   this->setWindowTitle(tr("CuteFractal"));
 }
 
-MainWindow::~MainWindow()
+MainWindowWidget::~MainWindowWidget()
 {
   delete this->fmanager;
 }
 
-void MainWindow::setupCentralWidget()
+void MainWindowWidget::setupCentralWidget()
 {
   QWidget *centralWidget = new QWidget;
   this->setCentralWidget(centralWidget);
 }
 
-void MainWindow::setupLayout()
+void MainWindowWidget::setupLayout()
 {
   QVBoxLayout *layout = new QVBoxLayout;
   layout->setMargin(5);
@@ -39,19 +39,19 @@ void MainWindow::setupLayout()
   this->centralWidget()->setLayout(layout);
 }
 
-void MainWindow::setupSize()
+void MainWindowWidget::setupSize()
 {
   this->setMinimumSize(600, 600);
 }
 
-void MainWindow::setupMenus()
+void MainWindowWidget::setupMenus()
 {
   this->fileMenu = this->menuBar()->addMenu(tr("&File"));
   this->editMenu = this->menuBar()->addMenu(tr("&Edit"));
   this->helpMenu = this->menuBar()->addMenu(tr("&Help"));
 }
 
-void MainWindow::setupActions()
+void MainWindowWidget::setupActions()
 {
   this->mandelbrotAction = new QAction(tr("Mandelbrot set"), this);
   this->mandelbrotAction->setStatusTip(tr("Create a new Mandelbrot set"));
@@ -66,13 +66,13 @@ void MainWindow::setupActions()
   this->editMenu->addAction(this->juliaAction);
 }
 
-void MainWindow::setMandelbrot()
+void MainWindowWidget::setMandelbrot()
 {
   this->fview->setFractal(this->fmanager->mandelbrot);
   this->update();
 }
 
-void MainWindow::setJulia()
+void MainWindowWidget::setJulia()
 {
   this->fview->setFractal(this->fmanager->julia);
   this->update();

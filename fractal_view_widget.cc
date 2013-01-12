@@ -1,38 +1,38 @@
-#include "fractal_view.hh"
+#include "fractal_view_widget.hh"
 
 #include <QPainter>
 
-FractalView::FractalView(QWidget *parent)
+FractalViewWidget::FractalViewWidget(QWidget *parent)
   : QWidget(parent)
 {
   
 }
 
-FractalView::~FractalView() {
+FractalViewWidget::~FractalViewWidget() {
 
 }
 
-void FractalView::setFractal(Fractal *fractal)
+void FractalViewWidget::setFractal(Fractal *fractal)
 {
   this->fractal = fractal;
 }
 
-QSize FractalView::minimumSizeHint() const
+QSize FractalViewWidget::minimumSizeHint() const
 {
   return QSize(100, 100);
 }
 
-QSize FractalView::sizeHint() const
+QSize FractalViewWidget::sizeHint() const
 {
   return QSize(1000, 1000);
 }
 
-void FractalView::paintEvent(QPaintEvent *event)
+void FractalViewWidget::paintEvent(QPaintEvent *event)
 {
   this->renderFractal();
 }
 
-void FractalView::renderFractal()
+void FractalViewWidget::renderFractal()
 {
   QSize size = this->size();
   int im_width = size.width();
@@ -50,7 +50,7 @@ void FractalView::renderFractal()
   delete image;
 }
 
-void FractalView::toQImage(int *image, QImage *qimage)
+void FractalViewWidget::toQImage(int *image, QImage *qimage)
 {
   int im_width = qimage->width();
   int im_height = qimage->height();
