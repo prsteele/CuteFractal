@@ -15,4 +15,9 @@ typedef unsigned int Palette(double);
 
 unsigned int bw_cutoff(double value);
 
+unsigned int greyscale(double value);
+
+unsigned int toARGB(int a, int r, int g, int b);
+unsigned int toARGB(double a, double r, double g, double b);
+
 #endif

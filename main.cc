@@ -13,8 +13,8 @@ int main(int argc, char *argv[]) {
   FractalView fview;
 
   Viewport view (0, 0, 4);
-  Mandelbrot man(&view, 100, 8, linear_interpolation, bw_cutoff);
-  Julia jul(&view, 100, 8, linear_interpolation, bw_cutoff, -.4, .6);
+  Mandelbrot man(&view, 200, 8, linear_interpolation, bw_cutoff);
+  Julia jul(&view, 1000, 8, linear_interpolation, greyscale, -.8, .156);
   fview.setFractal(&jul);
 
   fview.show();

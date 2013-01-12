@@ -1,6 +1,5 @@
 #include "fractal_view.hh"
 #include <QPainter>
-#include <iostream>
 
 FractalView::FractalView(QWidget *parent)
   : QWidget(parent)
