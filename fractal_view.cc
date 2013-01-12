@@ -1,10 +1,11 @@
 #include "fractal_view.hh"
+
 #include <QPainter>
 
 FractalView::FractalView(QWidget *parent)
   : QWidget(parent)
 {
-
+  
 }
 
 FractalView::~FractalView() {
