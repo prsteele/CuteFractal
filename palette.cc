@@ -12,7 +12,7 @@ unsigned int bw_cutoff(double value)
 
 unsigned int greyscale(double value)
 {
-  return toARGB((double)0xFF, 1 - value, 1 - value, 1 - value);
+  return toARGB(1.0, 1 - value, 1 - value, 1 - value);
 }
 
 unsigned int toARGB(int a, int r, int g, int b)

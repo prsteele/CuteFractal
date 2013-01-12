@@ -6,19 +6,38 @@
 #include <QMenu>
 
 #include "fractal_view.hh"
+#include "fractal_manager.hh"
 
 class MainWindow : public QMainWindow
 {
   Q_OBJECT;
 
 public:
-  MainWindow(FractalView *fview);
+  MainWindow();
   ~MainWindow();
+
+private slots:
+  void setMandelbrot();
+  void setJulia();
+
+protected:
+
+  void setupCentralWidget();
+  void setupLayout();
+  void setupSize();
+  void setupMenus();
+  void setupActions();
 
   QMenu *fileMenu;
   QMenu *editMenu;
   QMenu *helpMenu;
   FractalView *fview;
+
+  QAction *mandelbrotAction;
+  QAction *juliaAction;
+
+private:
+  FractalManager *fmanager;
 };
 
 #endif
