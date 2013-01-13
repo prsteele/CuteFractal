@@ -4,19 +4,17 @@
 #include "fractal.hh"
 #include "viewport.hh"
 #include "palette.hh"
+#include "evaluator.hh"
 
 class FractalManager
 {
 public:
-  FractalManager();
+  FractalManager(Evaluator *evaluator, Palette *palette);
   ~FractalManager();
 
   Viewport *view;
   Fractal *mandelbrot;
   Fractal *julia;
-
-  Palette *bw;
-  Palette *grey;
 };
 
 #endif

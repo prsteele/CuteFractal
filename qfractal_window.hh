@@ -7,6 +7,8 @@
 
 #include "qfractal_view.hh"
 #include "fractal_manager.hh"
+#include "palette_manager.hh"
+#include "evaluator_manager.hh"
 
 class QFractalWindow : public QMainWindow
 {
@@ -37,7 +39,9 @@ protected:
   QAction *juliaAction;
 
 private:
-  FractalManager *fmanager;
+  FractalManager *fractal_manager;
+  PaletteManager *palette_manager;
+  EvaluatorManager *evaluator_manager;
 };
 
 #endif

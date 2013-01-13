@@ -10,8 +10,7 @@ INCLUDEPATH += .
 CONFIG += debug
 
 # Input
-HEADERS += evaluate.hh \
-           iterated_fractal.hh \
+HEADERS += iterated_fractal.hh \
            mandelbrot.hh \
            palette.hh \
            result.hh \
@@ -21,10 +20,13 @@ HEADERS += evaluate.hh \
            julia.hh \
            qfractal_window.hh \
            fractal_manager.hh \
+           palette_manager.hh \
+           evaluator_manager.hh \
            bw_palette.hh \
-           greyscale_palette.hh
-SOURCES += evaluate.cc \
-           iterated_fractal.cc \
+           greyscale_palette.hh \
+           evaluator.hh \
+           linear_interpolator.hh
+SOURCES += iterated_fractal.cc \
            main.cc \
            mandelbrot.cc \
            palette.cc \
@@ -35,5 +37,8 @@ SOURCES += evaluate.cc \
            julia.cc \
            qfractal_window.cc \
            fractal_manager.cc \
+           palette_manager.cc \
+           evaluator_manager.cc \
            bw_palette.cc \
-           greyscale_palette.cc
+           greyscale_palette.cc \
+           linear_interpolator.cc

@@ -7,9 +7,14 @@
 
 QFractalWindow::QFractalWindow()
 {
-  this->fmanager = new FractalManager;
+  this->palette_manager = new PaletteManager;
+  this->evaluator_manager = new EvaluatorManager;
+  this->fractal_manager =
+    new FractalManager(this->evaluator_manager->linear_interpolator,
+		       this->palette_manager->greyscale);
+
   this->fview = new QFractalView(this);
-  this->fview->setFractal(this->fmanager->mandelbrot);
+  this->fview->setFractal(this->fractal_manager->mandelbrot);
   
   this->setupCentralWidget();
   this->setupLayout();
@@ -22,7 +27,9 @@ QFractalWindow::QFractalWindow()
 
 QFractalWindow::~QFractalWindow()
 {
-  delete this->fmanager;
+  delete this->fractal_manager;
+  delete this->palette_manager;
+  delete this->evaluator_manager;
 }
 
 void QFractalWindow::setupCentralWidget()
@@ -68,12 +75,12 @@ void QFractalWindow::setupActions()
 
 void QFractalWindow::setMandelbrot()
 {
-  this->fview->setFractal(this->fmanager->mandelbrot);
+  this->fview->setFractal(this->fractal_manager->mandelbrot);
   this->update();
 }
 
 void QFractalWindow::setJulia()
 {
-  this->fview->setFractal(this->fmanager->julia);
+  this->fview->setFractal(this->fractal_manager->julia);
   this->update();
 }

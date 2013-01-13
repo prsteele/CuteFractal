@@ -3,22 +3,22 @@
 #include <iostream>
 
 IteratedFractal::IteratedFractal(Viewport *view, int max_iterations, double max_radius,
-				 Evaluator eval, Palette *palette)
+				 Evaluator *evaluator, Palette *palette)
   : Fractal(view)
 {
   this->max_iterations = max_iterations;
   this->max_radius = max_radius;
-  this->eval = eval;
+  this->evaluator = evaluator;
   this->palette = palette;
 }
 
 IteratedFractal::IteratedFractal(int max_iterations, double max_radius,
-				 Evaluator eval, Palette *palette)
+				 Evaluator *evaluator, Palette *palette)
   : Fractal()
 {
   this->max_iterations = max_iterations;
   this->max_radius = max_radius;
-  this->eval = eval;
+  this->evaluator = evaluator;
   this->palette = palette;
 }
 
@@ -40,7 +40,7 @@ void IteratedFractal::render(int im_width, int im_height, int *image)
       Result res;
       this->iterate_point(x, y, &res);
 
-      double value = this->eval(&res, this->max_iterations, this->max_radius);
+      double value = this->evaluator->eval(&res);
       int color = this->palette->color(value);
 
       image[ndx] = color;

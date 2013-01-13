@@ -2,19 +2,20 @@
 #define ITERATED_FRACTAL_HH
 
 #include "fractal.hh"
-#include "evaluate.hh"
+#include "evaluator.hh"
 #include "palette.hh"
 #include "viewport.hh"
+#include "result.hh"
 
 class IteratedFractal : public Fractal
 {
 public:
 
   IteratedFractal(Viewport *view, int max_iterations, double max_radius,
-		  Evaluator eval, Palette *palette);
+		  Evaluator *eval, Palette *palette);
   
   IteratedFractal(int max_iterations, double max_radius,
-		  Evaluator eval, Palette *palette);
+		  Evaluator *eval, Palette *palette);
 
   /*
     Render the fractal for the given viewport and image size, storing
@@ -36,7 +37,7 @@ protected:
    */
   virtual void iterate_point(double x, double y, Result *result)=0;
 
-  Evaluator *eval;
+  Evaluator *evaluator;
   Palette *palette;
 
 };
