@@ -6,14 +6,14 @@
 
 #include "fractal.hh"
 
-class FractalViewWidget : public QWidget
+class QFractalView : public QWidget
 {
   Q_OBJECT;
 
 public:
 
-  FractalViewWidget(QWidget *parent=0);
-  ~FractalViewWidget();
+  QFractalView(QWidget *parent=0);
+  ~QFractalView();
 
   void setFractal(Fractal *fractal);
   

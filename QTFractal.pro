@@ -17,9 +17,9 @@ HEADERS += evaluate.hh \
            result.hh \
            viewport.hh \
            fractal.hh \
-           fractal_view_widget.hh \
+           qfractal_view.hh \
            julia.hh \
-           main_window_widget.hh \
+           qfractal_window.hh \
            fractal_manager.hh
 SOURCES += evaluate.cc \
            iterated_fractal.cc \
@@ -29,7 +29,7 @@ SOURCES += evaluate.cc \
            result.cc \
            viewport.cc \
            fractal.cc \
-           fractal_view_widget.cc \
+           qfractal_view.cc \
            julia.cc \
-           main_window_widget.cc \
+           qfractal_window.cc \
            fractal_manager.cc

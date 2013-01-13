@@ -1,15 +1,15 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'main_window_widget.hh'
+** Meta object code from reading C++ file 'qfractal_window.hh'
 **
-** Created: Sat Jan 12 12:26:32 2013
+** Created: Sun Jan 13 13:05:36 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "main_window_widget.hh"
+#include "qfractal_window.hh"
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'main_window_widget.hh' doesn't include <QObject>."
+#error "The header file 'qfractal_window.hh' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
 #error "This file was generated using the moc from 4.8.1. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -17,7 +17,7 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-static const uint qt_meta_data_MainWindowWidget[] = {
+static const uint qt_meta_data_QFractalWindow[] = {
 
  // content:
        6,       // revision
@@ -31,22 +31,22 @@ static const uint qt_meta_data_MainWindowWidget[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-      18,   17,   17,   17, 0x08,
-      34,   17,   17,   17, 0x08,
+      16,   15,   15,   15, 0x08,
+      32,   15,   15,   15, 0x08,
 
        0        // eod
 };
 
-static const char qt_meta_stringdata_MainWindowWidget[] = {
-    "MainWindowWidget\0\0setMandelbrot()\0"
+static const char qt_meta_stringdata_QFractalWindow[] = {
+    "QFractalWindow\0\0setMandelbrot()\0"
     "setJulia()\0"
 };
 
-void MainWindowWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void QFractalWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         Q_ASSERT(staticMetaObject.cast(_o));
-        MainWindowWidget *_t = static_cast<MainWindowWidget *>(_o);
+        QFractalWindow *_t = static_cast<QFractalWindow *>(_o);
         switch (_id) {
         case 0: _t->setMandelbrot(); break;
         case 1: _t->setJulia(); break;
@@ -56,33 +56,33 @@ void MainWindowWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
     Q_UNUSED(_a);
 }
 
-const QMetaObjectExtraData MainWindowWidget::staticMetaObjectExtraData = {
+const QMetaObjectExtraData QFractalWindow::staticMetaObjectExtraData = {
     0,  qt_static_metacall 
 };
 
-const QMetaObject MainWindowWidget::staticMetaObject = {
-    { &QMainWindow::staticMetaObject, qt_meta_stringdata_MainWindowWidget,
-      qt_meta_data_MainWindowWidget, &staticMetaObjectExtraData }
+const QMetaObject QFractalWindow::staticMetaObject = {
+    { &QMainWindow::staticMetaObject, qt_meta_stringdata_QFractalWindow,
+      qt_meta_data_QFractalWindow, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &MainWindowWidget::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &QFractalWindow::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *MainWindowWidget::metaObject() const
+const QMetaObject *QFractalWindow::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *MainWindowWidget::qt_metacast(const char *_clname)
+void *QFractalWindow::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_MainWindowWidget))
-        return static_cast<void*>(const_cast< MainWindowWidget*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_QFractalWindow))
+        return static_cast<void*>(const_cast< QFractalWindow*>(this));
     return QMainWindow::qt_metacast(_clname);
 }
 
-int MainWindowWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int QFractalWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)

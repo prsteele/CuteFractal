@@ -1,12 +1,12 @@
 #include <QtGui>
 #include <QApplication>
 
-#include "main_window_widget.hh"
+#include "qfractal_window.hh"
 
 int main(int argc, char *argv[]) {
   QApplication app(argc, argv);
 
-  MainWindowWidget window;
+  QFractalWindow window;
   window.show();
   
   return app.exec();
