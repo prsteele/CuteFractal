@@ -3,6 +3,7 @@
 
 #include "fractal.hh"
 #include "viewport.hh"
+#include "palette.hh"
 
 class FractalManager
 {
@@ -13,6 +14,9 @@ public:
   Viewport *view;
   Fractal *mandelbrot;
   Fractal *julia;
+
+  Palette *bw;
+  Palette *grey;
 };
 
 #endif

@@ -10,10 +10,10 @@ class Julia : public IteratedFractal
 
 public:
   Julia(Viewport *view, int max_iterations, double max_radius,
-	Evaluator eval, Palette palette, double c_re, double c_im);
+	Evaluator eval, Palette *palette, double c_re, double c_im);
 
   Julia(int max_iterations, double max_radius,
-	Evaluator eval, Palette palette, double c_re, double c_im);
+	Evaluator eval, Palette *palette, double c_re, double c_im);
 
   ~Julia();
 

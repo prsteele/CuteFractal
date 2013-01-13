@@ -20,7 +20,9 @@ HEADERS += evaluate.hh \
            qfractal_view.hh \
            julia.hh \
            qfractal_window.hh \
-           fractal_manager.hh
+           fractal_manager.hh \
+           bw_palette.hh \
+           greyscale_palette.hh
 SOURCES += evaluate.cc \
            iterated_fractal.cc \
            main.cc \
@@ -32,4 +34,6 @@ SOURCES += evaluate.cc \
            qfractal_view.cc \
            julia.cc \
            qfractal_window.cc \
-           fractal_manager.cc
+           fractal_manager.cc \
+           bw_palette.cc \
+           greyscale_palette.cc

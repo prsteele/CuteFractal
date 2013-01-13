@@ -2,13 +2,13 @@
 #include "mandelbrot.hh"
 
 Mandelbrot::Mandelbrot(Viewport *view, int max_iterations, double max_radius,
-		       Evaluator eval, Palette palette)
+		       Evaluator eval, Palette *palette)
   : IteratedFractal(view, max_iterations, max_radius, eval, palette)
 {
 }
 
 Mandelbrot::Mandelbrot(int max_iterations, double max_radius,
-		       Evaluator eval, Palette palette)
+		       Evaluator eval, Palette *palette)
   : IteratedFractal(max_iterations, max_radius, eval, palette)
 {
 }

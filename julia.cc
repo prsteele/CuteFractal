@@ -2,7 +2,7 @@
 #include "julia.hh"
 
 Julia::Julia(Viewport *view, int max_iterations, double max_radius,
-	     Evaluator eval, Palette palette, double param_re, double param_im)
+	     Evaluator eval, Palette *palette, double param_re, double param_im)
   : IteratedFractal(view, max_iterations, max_radius, eval, palette)
 {
   this->param_re = param_re;
@@ -10,7 +10,7 @@ Julia::Julia(Viewport *view, int max_iterations, double max_radius,
 }
 
 Julia::Julia(int max_iterations, double max_radius,
-	     Evaluator eval, Palette palette, double param_re, double param_im)
+	     Evaluator eval, Palette *palette, double param_re, double param_im)
   : IteratedFractal(max_iterations, max_radius, eval, palette)
 {
   this->param_re = param_re;

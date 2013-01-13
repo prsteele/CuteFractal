@@ -11,10 +11,10 @@ class IteratedFractal : public Fractal
 public:
 
   IteratedFractal(Viewport *view, int max_iterations, double max_radius,
-		  Evaluator eval, Palette palette);
+		  Evaluator eval, Palette *palette);
   
   IteratedFractal(int max_iterations, double max_radius,
-		  Evaluator eval, Palette palette);
+		  Evaluator eval, Palette *palette);
 
   /*
     Render the fractal for the given viewport and image size, storing
