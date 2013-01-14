@@ -7,11 +7,11 @@ class Fractal
 {
 public:
 
-  Fractal();
   Fractal(Viewport *view);
   ~Fractal();
 
   void setViewport(Viewport *view);
+  Viewport* getViewport();
   
   virtual void render(int im_width, int im_height, int *image)=0;
 

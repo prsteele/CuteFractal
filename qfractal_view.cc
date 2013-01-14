@@ -5,7 +5,6 @@
 QFractalView::QFractalView(QWidget *parent)
   : QWidget(parent)
 {
-  
 }
 
 QFractalView::~QFractalView() {
@@ -68,4 +67,32 @@ void QFractalView::toQImage(int *image, QImage *qimage)
       ndx++;
     }
   }  
+}
+
+void QFractalView::mousePressEvent(QMouseEvent *event)
+{
+  this->isDragging = true;
+  this->mouseStartX = event->x();
+  this->mouseStartY = event->y();
+  this->startRe = this->fractal->getViewport()->centerRe();
+  this->startIm = this->fractal->getViewport()->centerIm();
+}
+
+
+void QFractalView::mouseReleaseEvent(QMouseEvent *event)
+{
+  this->isDragging = false;
+}
+
+void QFractalView::mouseMoveEvent(QMouseEvent *event)
+{
+  if (this->isDragging) {
+    int dRe = event->x() - this->mouseStartX;
+    int dIm = event->y() - this->mouseStartY;
+
+    // Subtract the changes, since we want to simulate dragging paper
+    this->fractal->getViewport()->setCenter(this->startRe, this->startIm);
+    this->fractal->getViewport()->moveByPixel(-dRe, -dIm);
+    this->update();
+  }
 }

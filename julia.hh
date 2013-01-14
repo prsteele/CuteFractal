@@ -12,9 +12,6 @@ public:
   Julia(Viewport *view, int max_iterations, double max_radius,
 	Evaluator *eval, Palette *palette, double c_re, double c_im);
 
-  Julia(int max_iterations, double max_radius,
-	Evaluator *eval, Palette *palette, double c_re, double c_im);
-
   ~Julia();
 
   virtual void iterate_point(double x, double y, Result *result);

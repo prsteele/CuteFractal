@@ -9,14 +9,6 @@ Julia::Julia(Viewport *view, int max_iterations, double max_radius,
   this->param_im = param_im;
 }
 
-Julia::Julia(int max_iterations, double max_radius,
-	     Evaluator *eval, Palette *palette, double param_re, double param_im)
-  : IteratedFractal(max_iterations, max_radius, eval, palette)
-{
-  this->param_re = param_re;
-  this->param_im = param_im;
-}
-
 Julia::~Julia() {
 }
 

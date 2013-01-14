@@ -12,30 +12,26 @@ IteratedFractal::IteratedFractal(Viewport *view, int max_iterations, double max_
   this->palette = palette;
 }
 
-IteratedFractal::IteratedFractal(int max_iterations, double max_radius,
-				 Evaluator *evaluator, Palette *palette)
-  : Fractal()
-{
-  this->max_iterations = max_iterations;
-  this->max_radius = max_radius;
-  this->evaluator = evaluator;
-  this->palette = palette;
-}
-
 void IteratedFractal::render(int im_width, int im_height, int *image)
 {
-  double coor_height = im_height * this->view->coor_width / im_width;
-  double dx = this->view->coor_width / im_width;
+  this->view->setImageSize(im_width, im_height);
+
+  double coor_width = this->view->coorWidth();
+  double coor_height = this->view->coorHeight();
+  double center_re = this->view->centerRe();
+  double center_im = this->view->centerIm();
+  
+  double dx = coor_width / im_width;
   double dy = coor_height / im_height;
 
   int ndx = 0;
   double x;
   double y;
 
-  y = this->view->center_im + coor_height / 2;
+  y = center_im + coor_height / 2;
   for (int row = 0; row < im_height; row++, y -= dy) {
 
-    x = this->view->center_re - this->view->coor_width / 2;
+    x = center_re - coor_width / 2;
     for (int col = 0; col < im_width; col++, x += dx) {
       Result res;
       this->iterate_point(x, y, &res);
