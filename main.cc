@@ -6,7 +6,7 @@
 int main(int argc, char *argv[]) {
   QApplication app(argc, argv);
 
-  QFractalWindow window;
+  QFractalWindow window(&app);
   window.show();
   
   return app.exec();

@@ -5,8 +5,10 @@
 #include <QString>
 #include <QAction>
 
-QFractalWindow::QFractalWindow()
+QFractalWindow::QFractalWindow(QApplication *app, QWidget *parent)
+  : QMainWindow(parent)
 {
+  this->application = app;
   this->palette_manager = new PaletteManager;
   this->evaluator_manager = new EvaluatorManager;
   this->fractal_manager =
@@ -71,6 +73,13 @@ void QFractalWindow::setupActions()
   this->connect(this->juliaAction, SIGNAL(triggered()),
 		this, SLOT(setJulia()));
   this->editMenu->addAction(this->juliaAction);
+
+  this->quitAction = new QAction(tr("&Quit"), this);
+  this->quitAction->setStatusTip(tr("Close the application"));
+  this->connect(this->quitAction, SIGNAL(triggered()),
+		this->application, SLOT(quit()));
+  this->fileMenu->addAction(this->quitAction);
+
 }
 
 void QFractalWindow::setMandelbrot()

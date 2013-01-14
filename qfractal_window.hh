@@ -15,7 +15,7 @@ class QFractalWindow : public QMainWindow
   Q_OBJECT;
 
 public:
-  QFractalWindow();
+  QFractalWindow(QApplication *app, QWidget *parent=0);
   ~QFractalWindow();
 
 private slots:
@@ -37,11 +37,13 @@ protected:
 
   QAction *mandelbrotAction;
   QAction *juliaAction;
+  QAction *quitAction;
 
 private:
   FractalManager *fractal_manager;
   PaletteManager *palette_manager;
   EvaluatorManager *evaluator_manager;
+  QApplication *application;
 };
 
 #endif
