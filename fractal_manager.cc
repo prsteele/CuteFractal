@@ -8,9 +8,9 @@ FractalManager::FractalManager(Evaluator *evaluator, Palette *palette)
 {
   this->view = new Viewport(0, 0, 100, 100, 4);
   this->mandelbrot =
-    new Mandelbrot(view, 200, 8, evaluator, palette);
+    new Mandelbrot(200, 8, evaluator, palette);
   this->julia =
-    new Julia(view, 1000, 8, evaluator, palette, -.8, .156);
+    new Julia(1000, 8, evaluator, palette, -.8, .156);
 }
 
 FractalManager::~FractalManager()

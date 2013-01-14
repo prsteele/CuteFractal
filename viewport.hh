@@ -27,6 +27,9 @@ public:
   double coorHeight() const;
   int imageWidth() const;
   int imageHeight() const;
+
+  void imageToCoor(int x, int y, double *re, double *im);
+  void coorToImage(double re, double im, int *x, int *y);
   
 private:
   

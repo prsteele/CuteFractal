@@ -8,7 +8,7 @@ Viewport::Viewport(double center_re, double center_im,
     qWarning("Coordinate width must be positive");
     coor_width = 4;
   }
-  
+
   this->center_re = center_re;
   this->center_im = center_im;
   this->im_width = im_width;
@@ -108,4 +108,17 @@ int Viewport::imageWidth() const
 int Viewport::imageHeight() const
 {
   return this->im_height;
+}
+
+
+void Viewport::imageToCoor(int x, int y, double *re, double *im)
+{
+  *re = this->center_re + this->coor_width * (x / this->d_im_width - 0.5);
+  *im = this->center_im - this->coor_height * (y / this->d_im_height - 0.5);
+}
+
+void Viewport::coorToImage(double re, double im, int *x, int *y)
+{
+  *x = ((re - this->center_re) / this->coor_width + 0.5) * this->im_width;
+  *y = ((this->center_im - im) / this->coor_height + 0.5) * this->im_height;
 }

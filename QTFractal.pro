@@ -32,7 +32,6 @@ SOURCES += iterated_fractal.cc \
            palette.cc \
            result.cc \
            viewport.cc \
-           fractal.cc \
            qfractal_view.cc \
            julia.cc \
            qfractal_window.cc \

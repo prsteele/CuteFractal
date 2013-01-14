@@ -11,7 +11,7 @@ class IteratedFractal : public Fractal
 {
 public:
 
-  IteratedFractal(Viewport *view, int max_iterations, double max_radius,
+  IteratedFractal(int max_iterations, double max_radius,
 		  Evaluator *eval, Palette *palette);
 
   /*
@@ -21,7 +21,7 @@ public:
     corresponds to the top left pixel, and indices increase across
     columns then down rows.
    */
-  virtual void render(int im_width, int im_height, int *image);
+  virtual void render(Viewport *view, Palette::Color *image);
 
 protected:
 

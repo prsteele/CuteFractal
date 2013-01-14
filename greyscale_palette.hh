@@ -10,7 +10,7 @@ public:
   GreyscalePalette();
   ~GreyscalePalette();
 
-  virtual unsigned int color(double value);
+  virtual Palette::Color color(double value);
 };
 
 #endif

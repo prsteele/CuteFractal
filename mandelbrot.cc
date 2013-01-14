@@ -1,9 +1,9 @@
 #include <math.h>
 #include "mandelbrot.hh"
 
-Mandelbrot::Mandelbrot(Viewport *view, int max_iterations, double max_radius,
+Mandelbrot::Mandelbrot(int max_iterations, double max_radius,
 		       Evaluator *eval, Palette *palette)
-  : IteratedFractal(view, max_iterations, max_radius, eval, palette)
+  : IteratedFractal(max_iterations, max_radius, eval, palette)
 {
 }
 

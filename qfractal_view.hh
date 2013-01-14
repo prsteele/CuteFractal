@@ -7,6 +7,8 @@
 
 #include "fractal.hh"
 
+#define QFRACTALVIEW_FORMAT QImage::Format_ARGB32_Premultiplied
+
 class QFractalView : public QWidget
 {
   Q_OBJECT;
@@ -22,14 +24,25 @@ public:
   QSize sizeHint() const;
 
 protected:
+  void resizeEvent(QResizeEvent *event);
   void paintEvent(QPaintEvent *event);
 
 private:
-
+  Viewport *view;
+  bool fractal_rendered;
+  
   void renderFractal();
+  
+  /*
+    Render the current fractal over a portion of the screen; paint the
+    results using the provided painter
+   */
+  void renderRegion(QPainter *painter, QRect rect);
   Fractal *fractal;
 
-  void toQImage(int *image, QImage *qimage);
+  QImage *current_image;
+
+  void toQImage(Palette::Color *image, QImage *qimage);
 
   // Handle click and drag events
   bool isDragging;

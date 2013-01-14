@@ -19,7 +19,7 @@ void BWPalette::setCutoff(double cutoff)
   this->cutoff = cutoff;
 }
 
-unsigned int BWPalette::color(double value)
+Palette::Color BWPalette::color(double value)
 {
   if (value < .5) {
     return this->toARGB(0xFF, 0xFF, 0xFF, 0xFF);

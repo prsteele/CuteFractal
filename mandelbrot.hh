@@ -6,7 +6,7 @@
 class Mandelbrot : public IteratedFractal
 {
 public:
-  Mandelbrot(Viewport *view, int max_iterations, double max_radius,
+  Mandelbrot(int max_iterations, double max_radius,
 	     Evaluator *eval, Palette *palette);
 
   ~Mandelbrot();

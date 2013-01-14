@@ -1,10 +1,8 @@
 #include "iterated_fractal.hh"
+#include "palette.hh"
 
-#include <iostream>
-
-IteratedFractal::IteratedFractal(Viewport *view, int max_iterations, double max_radius,
+IteratedFractal::IteratedFractal(int max_iterations, double max_radius,
 				 Evaluator *evaluator, Palette *palette)
-  : Fractal(view)
 {
   this->max_iterations = max_iterations;
   this->max_radius = max_radius;
@@ -12,14 +10,14 @@ IteratedFractal::IteratedFractal(Viewport *view, int max_iterations, double max_
   this->palette = palette;
 }
 
-void IteratedFractal::render(int im_width, int im_height, int *image)
+void IteratedFractal::render(Viewport *view, Palette::Color *image)
 {
-  this->view->setImageSize(im_width, im_height);
-
-  double coor_width = this->view->coorWidth();
-  double coor_height = this->view->coorHeight();
-  double center_re = this->view->centerRe();
-  double center_im = this->view->centerIm();
+  double coor_width = view->coorWidth();
+  double coor_height = view->coorHeight();
+  double center_re = view->centerRe();
+  double center_im = view->centerIm();
+  int im_width = view->imageWidth();
+  int im_height = view->imageHeight();
   
   double dx = coor_width / im_width;
   double dy = coor_height / im_height;
@@ -37,8 +35,8 @@ void IteratedFractal::render(int im_width, int im_height, int *image)
       this->iterate_point(x, y, &res);
 
       double value = this->evaluator->eval(&res);
-      int color = this->palette->color(value);
-
+      Palette::Color color = this->palette->color(value);
+      
       image[ndx] = color;
       ndx++;
     }

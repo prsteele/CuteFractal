@@ -10,7 +10,7 @@ public:
   BWPalette(double cutoff);
   ~BWPalette();
   
-  virtual unsigned int color(double value);
+  virtual Color color(double value);
 
   void setCutoff(double value);
 

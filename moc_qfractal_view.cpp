@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qfractal_view.hh'
 **
-** Created: Sun Jan 13 22:50:17 2013
+** Created: Mon Jan 14 15:52:19 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
