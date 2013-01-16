@@ -3,11 +3,21 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = 
-DEPENDPATH += .
-INCLUDEPATH += .
+DEPENDPATH += src
+INCLUDEPATH += src
+MOC_DIR = generated
 
-CONFIG += debug
+CONFIG += debug_and_release
+
+CONFIG(debug, debug|release) {
+  TARGET = debug/QTFractal
+  OBJECTS_DIR = debug
+}
+
+CONFIG(release, debug|release) {
+  TARGET = release/QTFractal
+  OBJECTS_DIR = release
+}
 
 # Input
 HEADERS += iterated_fractal.hh \
