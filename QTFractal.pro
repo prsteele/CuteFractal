@@ -7,7 +7,7 @@ DEPENDPATH += src
 INCLUDEPATH += src
 MOC_DIR = generated
 
-CONFIG += debug_and_release
+CONFIG += debug
 
 CONFIG(debug, debug|release) {
   TARGET = debug/QTFractal
@@ -35,7 +35,8 @@ HEADERS += iterated_fractal.hh \
            bw_palette.hh \
            greyscale_palette.hh \
            evaluator.hh \
-           linear_interpolator.hh
+           linear_interpolator.hh \
+           qview_panel.hh
 SOURCES += iterated_fractal.cc \
            main.cc \
            mandelbrot.cc \
@@ -50,4 +51,5 @@ SOURCES += iterated_fractal.cc \
            evaluator_manager.cc \
            bw_palette.cc \
            greyscale_palette.cc \
-           linear_interpolator.cc
+           linear_interpolator.cc \
+           qview_panel.cc

@@ -4,7 +4,9 @@
 #include <QMainWindow>
 #include <QMenuBar>
 #include <QMenu>
+#include <QCloseEvent>
 
+#include "qview_panel.hh"
 #include "qfractal_view.hh"
 #include "fractal_manager.hh"
 #include "palette_manager.hh"
@@ -30,6 +32,8 @@ protected:
   void setupMenus();
   void setupActions();
 
+  void closeEvent(QCloseEvent *event);
+
   QMenu *fileMenu;
   QMenu *editMenu;
   QMenu *helpMenu;
@@ -44,6 +48,8 @@ private:
   PaletteManager *palette_manager;
   EvaluatorManager *evaluator_manager;
   QApplication *application;
+
+  QViewPanel *view_panel;
 };
 
 #endif

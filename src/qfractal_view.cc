@@ -2,6 +2,8 @@
 #include <QPainter>
 #include "palette.hh"
 
+#include <iostream>
+
 QFractalView::QFractalView(QWidget *parent)
   : QWidget(parent)
 {
@@ -10,6 +12,8 @@ QFractalView::QFractalView(QWidget *parent)
   this->current_image = new QImage;
   this->fractal_rendered = false;
   this->fractal = NULL;
+
+  this->zoom_scale = .5;
 }
 
 QFractalView::~QFractalView() {
@@ -239,4 +243,43 @@ void QFractalView::mouseMoveEvent(QMouseEvent *event)
     // this->fractal->getViewport()->moveByPixel(-dRe, -dIm);
     // this->update();
   }
+}
+
+void QFractalView::setZoomScale(double scale)
+{
+  if (scale <= 0 || scale >= 1) {
+    qWarning("Zoom scaling should be greater than zero and less than one");
+    scale = .5;
+  }
+
+  this->zoom_scale = scale;
+}
+
+double QFractalView::getZoomScale()
+{
+  return this->zoom_scale;
+}
+
+void QFractalView::zoomIn()
+{
+  double new_width = this->view->coorWidth() * this->zoom_scale;
+  this->view->setCoordinateWidth(new_width);
+
+  // We need to re-render the fractal
+  this->fractal_rendered = false;
+  this->update();
+
+  std::cout << new_width << "\n";
+}
+
+void QFractalView::zoomOut()
+{
+  double new_width = this->view->coorWidth() / this->zoom_scale;
+  this->view->setCoordinateWidth(new_width);
+
+  // We need to re-render the fractal
+  this->fractal_rendered = false;
+  this->update();
+
+    std::cout << new_width << "\n";
 }

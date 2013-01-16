@@ -25,6 +25,9 @@ QFractalWindow::QFractalWindow(QApplication *app, QWidget *parent)
   this->setupSize();
   
   this->setWindowTitle(tr("CuteFractal"));
+
+  this->view_panel = new QViewPanel(this->fview);
+  view_panel->show();
 }
 
 QFractalWindow::~QFractalWindow()
@@ -32,6 +35,12 @@ QFractalWindow::~QFractalWindow()
   delete this->fractal_manager;
   delete this->palette_manager;
   delete this->evaluator_manager;
+}
+
+void QFractalWindow::closeEvent(QCloseEvent *event)
+{
+  this->view_panel->close();
+  QMainWindow::closeEvent(event);
 }
 
 void QFractalWindow::setupCentralWidget()
@@ -42,10 +51,9 @@ void QFractalWindow::setupCentralWidget()
 
 void QFractalWindow::setupLayout()
 {
-  QVBoxLayout *layout = new QVBoxLayout;
+  QVBoxLayout *layout = new QVBoxLayout(this->centralWidget());
   layout->setMargin(5);
   layout->addWidget(this->fview);
-  this->centralWidget()->setLayout(layout);
 }
 
 void QFractalWindow::setupSize()

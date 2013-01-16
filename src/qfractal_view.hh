@@ -23,6 +23,12 @@ public:
   QSize minimumSizeHint() const;
   QSize sizeHint() const;
 
+  // Zooming
+  void zoomIn();
+  void zoomOut();
+  void setZoomScale(double scale);
+  double getZoomScale();
+
 protected:
   void resizeEvent(QResizeEvent *event);
   void paintEvent(QPaintEvent *event);
@@ -53,6 +59,9 @@ private:
   void mousePressEvent(QMouseEvent *event);
   void mouseReleaseEvent(QMouseEvent *event);
   void mouseMoveEvent(QMouseEvent *event);
+
+  // Zooming
+  double zoom_scale;
 };
 
 #endif
