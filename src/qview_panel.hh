@@ -11,7 +11,7 @@ class QViewPanel : public QWidget
   Q_OBJECT;
 
 public:
-  QViewPanel(QFractalView *fview, QWidget *parent=0);
+  QViewPanel(QFractalView **fview, QWidget *parent=0);
   ~QViewPanel();
 
   QSize sizeHint() const;
@@ -21,7 +21,7 @@ private slots:
   void zoomOut();  
 
 private:
-  QFractalView *fview;
+  QFractalView **fview;
 
   QPushButton *zoom_in_button;
   QPushButton *zoom_out_button;

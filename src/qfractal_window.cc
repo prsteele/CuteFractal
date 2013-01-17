@@ -5,20 +5,17 @@
 #include <QString>
 #include <QAction>
 
+#include <map>
+#include <string>
+
 QFractalWindow::QFractalWindow(QApplication *app, QWidget *parent)
   : QMainWindow(parent)
 {
   this->application = app;
-  this->palette_manager = new PaletteManager;
-  this->evaluator_manager = new EvaluatorManager;
-  this->fractal_manager =
-    new FractalManager(this->evaluator_manager->linear_interpolator,
-		       this->palette_manager->greyscale);
+  this->fview = NULL;
 
-  this->fview = new QFractalView(this);
-  this->fview->setFractal(this->fractal_manager->mandelbrot);
-  
   this->setupCentralWidget();
+  this->setupManagers();
   this->setupLayout();
   this->setupMenus();
   this->setupActions();
@@ -26,7 +23,8 @@ QFractalWindow::QFractalWindow(QApplication *app, QWidget *parent)
   
   this->setWindowTitle(tr("CuteFractal"));
 
-  this->view_panel = new QViewPanel(this->fview);
+  // This should be relocated, or managed better somehow...
+  this->view_panel = new QViewPanel(&(this->fview));
   view_panel->show();
 }
 
@@ -43,6 +41,18 @@ void QFractalWindow::closeEvent(QCloseEvent *event)
   QMainWindow::closeEvent(event);
 }
 
+void QFractalWindow::setupManagers()
+{
+  this->palette_manager = new PaletteManager;
+  this->evaluator_manager = new EvaluatorManager;
+  this->fractal_manager =
+    new FractalManager(this->evaluator_manager->linear_interpolator,
+		       this->palette_manager->greyscale);
+
+  // FractalViewManager needs to use FractalManager, and so must be create
+  this->fractal_view_manager = new FractalViewManager(this->centralWidget(), this->fractal_manager);
+}
+
 void QFractalWindow::setupCentralWidget()
 {
   QWidget *centralWidget = new QWidget;
@@ -53,7 +63,12 @@ void QFractalWindow::setupLayout()
 {
   QVBoxLayout *layout = new QVBoxLayout(this->centralWidget());
   layout->setMargin(5);
+
+  // Add the current QFractalView as the sole child
+  this->fview = this->fractal_view_manager->getCurrent();
+
   layout->addWidget(this->fview);
+  this->fview->setVisible(true);
 }
 
 void QFractalWindow::setupSize()
@@ -87,17 +102,32 @@ void QFractalWindow::setupActions()
   this->connect(this->quitAction, SIGNAL(triggered()),
 		this->application, SLOT(quit()));
   this->fileMenu->addAction(this->quitAction);
+}
 
+void QFractalWindow::setFractal(const char* fview_name)
+{
+  QLayout *layout = this->centralWidget()->layout();
+  
+  // Remove the current fractal from the central widget
+  if (this->fview != NULL) {
+    layout->removeWidget(this->fview);
+    this->fview->setVisible(false);
+  }
+
+  this->fractal_view_manager->choose(fview_name);
+
+  // Add the new fractal to the central widget
+  this->fview = this->fractal_view_manager->getCurrent();
+  layout->addWidget(this->fview);
+  this->fview->setVisible(true);
 }
 
 void QFractalWindow::setMandelbrot()
 {
-  this->fview->setFractal(this->fractal_manager->mandelbrot);
-  this->update();
+  this->setFractal("mandelbrot");
 }
 
 void QFractalWindow::setJulia()
 {
-  this->fview->setFractal(this->fractal_manager->julia);
-  this->update();
+  this->setFractal("julia");
 }

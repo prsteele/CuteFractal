@@ -2,13 +2,12 @@
 #include <QPainter>
 #include "palette.hh"
 
-#include <iostream>
-
 QFractalView::QFractalView(QWidget *parent)
   : QWidget(parent)
 {
   QSize size = this->size();
   this->view = new Viewport(0, 0, size.width(), size.height(), 4);
+
   this->current_image = new QImage;
   this->fractal_rendered = false;
   this->fractal = NULL;
@@ -236,12 +235,6 @@ void QFractalView::mouseMoveEvent(QMouseEvent *event)
 
     this->mouseStartX = event->x();
     this->mouseStartY = event->y();
-
-
-    // // Subtract the changes, since we want to simulate dragging paper
-    // this->fractal->getViewport()->setCenter(this->startRe, this->startIm);
-    // this->fractal->getViewport()->moveByPixel(-dRe, -dIm);
-    // this->update();
   }
 }
 
@@ -268,8 +261,6 @@ void QFractalView::zoomIn()
   // We need to re-render the fractal
   this->fractal_rendered = false;
   this->update();
-
-  std::cout << new_width << "\n";
 }
 
 void QFractalView::zoomOut()
@@ -280,6 +271,4 @@ void QFractalView::zoomOut()
   // We need to re-render the fractal
   this->fractal_rendered = false;
   this->update();
-
-    std::cout << new_width << "\n";
 }

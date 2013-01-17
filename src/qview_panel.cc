@@ -1,9 +1,8 @@
 #include "qview_panel.hh"
 
 #include <QHBoxLayout>
-#include <iostream>
 
-QViewPanel::QViewPanel(QFractalView *fview, QWidget *parent)
+QViewPanel::QViewPanel(QFractalView **fview, QWidget *parent)
   : QWidget(parent)
 {
   this->fview = fview;
@@ -21,12 +20,12 @@ QViewPanel::~QViewPanel()
 
 void QViewPanel::zoomIn()
 {
-  this->fview->zoomIn();
+  (*(this->fview))->zoomIn();
 }
 
 void QViewPanel::zoomOut()
 {
-  this->fview->zoomOut();
+  (*(this->fview))->zoomOut();
 }
 
 QSize QViewPanel::sizeHint() const

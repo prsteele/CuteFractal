@@ -11,6 +11,12 @@
 #include "fractal_manager.hh"
 #include "palette_manager.hh"
 #include "evaluator_manager.hh"
+#include "fractal_view_manager.hh"
+
+// We need a forward declaration of FractalViewManager, since these two
+// files are mutually dependent. TODO: Fix this, this represents an
+// underlying problem with ownership
+class FractalViewManager;
 
 class QFractalWindow : public QMainWindow
 {
@@ -26,6 +32,7 @@ private slots:
 
 protected:
 
+  void setupManagers();
   void setupCentralWidget();
   void setupLayout();
   void setupSize();
@@ -37,19 +44,21 @@ protected:
   QMenu *fileMenu;
   QMenu *editMenu;
   QMenu *helpMenu;
-  QFractalView *fview;
 
   QAction *mandelbrotAction;
   QAction *juliaAction;
   QAction *quitAction;
 
 private:
-  FractalManager *fractal_manager;
   PaletteManager *palette_manager;
   EvaluatorManager *evaluator_manager;
+  FractalManager *fractal_manager;
+  FractalViewManager *fractal_view_manager;
+  QFractalView *fview;
   QApplication *application;
-
   QViewPanel *view_panel;
+
+  void setFractal(const char* fview_name);
 };
 
 #endif

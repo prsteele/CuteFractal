@@ -36,7 +36,8 @@ HEADERS += iterated_fractal.hh \
            greyscale_palette.hh \
            evaluator.hh \
            linear_interpolator.hh \
-           qview_panel.hh
+           qview_panel.hh \
+           fractal_view_manager.hh
 SOURCES += iterated_fractal.cc \
            main.cc \
            mandelbrot.cc \
@@ -52,4 +53,5 @@ SOURCES += iterated_fractal.cc \
            bw_palette.cc \
            greyscale_palette.cc \
            linear_interpolator.cc \
-           qview_panel.cc
+           qview_panel.cc \
+           fractal_view_manager.cc
